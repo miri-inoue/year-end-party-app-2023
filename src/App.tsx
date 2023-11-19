@@ -69,7 +69,9 @@ function App() {
 		setIsFinish(false);
 	};
 
-	const onChangeMemberList = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+	const handleOnChangeMemberList = (
+		e: React.ChangeEvent<HTMLTextAreaElement>,
+	) => {
 		setMemberList(
 			e.target.value
 				.split("\n")
@@ -78,7 +80,9 @@ function App() {
 		);
 	};
 
-	const onChangePrizeList = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+	const handleOnChangePrizeList = (
+		e: React.ChangeEvent<HTMLTextAreaElement>,
+	) => {
 		setPrizeList(
 			e.target.value
 				.split("\n")
@@ -104,7 +108,7 @@ function App() {
 						<div className="grid w-full gap-2">
 							<Label htmlFor="member-list">Member list</Label>
 							<Textarea
-								onChange={(e) => onChangeMemberList(e)}
+								onChange={(e) => handleOnChangeMemberList(e)}
 								className="h-40"
 								placeholder="Type member list here."
 								id="member-list"
@@ -114,7 +118,7 @@ function App() {
 						<div className="grid w-full gap-2">
 							<Label htmlFor="prize-list">Prize list</Label>
 							<Textarea
-								onChange={(e) => onChangePrizeList(e)}
+								onChange={(e) => handleOnChangePrizeList(e)}
 								className="h-40"
 								placeholder="Type prize list here."
 								id="prize-list"
