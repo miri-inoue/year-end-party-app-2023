@@ -109,7 +109,7 @@ function App() {
 						<Textarea
 							value={activeMemberList.join("\n")}
 							className="h-40"
-							placeholder="active member list here."
+							placeholder="Active member list here."
 							id="active-member"
 							disabled
 						/>
@@ -119,7 +119,7 @@ function App() {
 						<Textarea
 							value={activePrizeList.join("\n")}
 							className="h-40"
-							placeholder="active prize list here."
+							placeholder="Active prize list here."
 							id="active-prize"
 							disabled
 						/>
