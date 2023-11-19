@@ -46,6 +46,7 @@ function App() {
 		);
 		setActivePrizeList(nextActivePrizeList);
 
+		// resolve results
 		setResult(`${member} - ${prize}`);
 		setAllResultList((prev) =>
 			prev.length === 0
