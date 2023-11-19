@@ -19,6 +19,10 @@ function App() {
 	const isRunActive =
 		memberList.length !== 0 && prizeList.length !== 0 && !isFinish;
 
+	const textActiveMemberList = activeMemberList.join("\n");
+	const textActivePrizeList = activePrizeList.join("\n");
+	const textAllResultList = allResultList.join("\n");
+
 	const handleRun = () => {
 		// initial click (load data)
 		if (activeMemberList.length === 0 || activePrizeList.length === 0) {
@@ -131,7 +135,7 @@ function App() {
 						<div className="grid w-full gap-2">
 							<Label htmlFor="active-member-list">Active member list</Label>
 							<Textarea
-								value={activeMemberList.join("\n")}
+								value={textActiveMemberList}
 								className="h-40"
 								placeholder="Active member list here."
 								id="active-member"
@@ -141,7 +145,7 @@ function App() {
 						<div className="grid w-full gap-2">
 							<Label htmlFor="active-prize-list">Active prize list</Label>
 							<Textarea
-								value={activePrizeList.join("\n")}
+								value={textActivePrizeList}
 								className="h-40"
 								placeholder="Active prize list here."
 								id="active-prize"
@@ -153,7 +157,7 @@ function App() {
 						<div className="grid w-full gap-2">
 							<Label htmlFor="all-result">All result list</Label>
 							<Textarea
-								value={allResultList.join("\n")}
+								value={textAllResultList}
 								className="h-40"
 								placeholder="All result list here."
 								id="all-result"
