@@ -71,7 +71,15 @@ function App() {
 
 	return (
 		<div className="flex flex-col gap-4 p-8 h-screen justify-between">
-			<h1 className="text-xl">Year end party 2023, Lottery app</h1>
+			<div className="flex gap-2 items-baseline">
+				<h1 className="text-xl">Year end party 2023, Lottery app</h1>
+				<a
+					className="text-xs text-blue-500 hover:underline"
+					href="https://github.com/camiha/year-end-party-app-2023"
+				>
+					(source code here)
+				</a>
+			</div>
 			<div className="flex flex-col gap-4">
 				<div className="flex gap-2">
 					<div className="grid w-full gap-2">
