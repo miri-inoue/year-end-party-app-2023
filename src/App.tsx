@@ -36,6 +36,7 @@ function App() {
 		const nextActiveMemberList = activeMemberList.filter(
 			(item) => item !== member,
 		);
+		setActiveMemberList(nextActiveMemberList);
 
 		// resolve prize
 		const randomPrizeIndex = Math.floor(Math.random() * activePrizeList.length);
@@ -43,6 +44,7 @@ function App() {
 		const nextActivePrizeList = activePrizeList.filter(
 			(item) => item !== prize,
 		);
+		setActivePrizeList(nextActivePrizeList);
 
 		setResult(`${member} - ${prize}`);
 		setPreviousResultList((prev) =>
@@ -50,8 +52,6 @@ function App() {
 				? [`${member} - ${prize}`]
 				: [...prev, `${member} - ${prize}`],
 		);
-		setActiveMemberList(nextActiveMemberList);
-		setActivePrizeList(nextActivePrizeList);
 
 		const isMemberEmpty = nextActiveMemberList.length === 0;
 		const isPrizeEmpty = nextActivePrizeList.length === 0;
