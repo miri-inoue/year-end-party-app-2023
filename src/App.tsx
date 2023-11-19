@@ -156,6 +156,9 @@ function App() {
 			</div>
 
 			<div className="flex w-full gap-2">
+				<Button className="w-full" onClick={handleReset}>
+					Reset
+				</Button>
 				{isRunActive ? (
 					<Button className="w-full" onClick={handleRun}>
 						{isRun ? "Run" : "Load"}
@@ -165,9 +168,6 @@ function App() {
 						Run
 					</Button>
 				)}
-				<Button className="w-full" onClick={handleReset}>
-					Reset
-				</Button>
 			</div>
 		</div>
 	);
