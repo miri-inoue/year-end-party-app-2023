@@ -49,7 +49,7 @@ function App() {
 				/>
 			</div>
 			<div className="grid w-full gap-2">
-				<Label htmlFor="target-list">Target list</Label>
+				<Label htmlFor="target-list">Current target list</Label>
 				<Textarea
 					value={textTargetList}
 					className="h-60"
