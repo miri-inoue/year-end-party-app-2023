@@ -11,7 +11,7 @@ function App() {
 	const [activePrizeList, setActivePrizeList] = useState<string[]>([]);
 
 	const [result, setResult] = useState<string>("");
-	const [previousResultList, setPreviousResultList] = useState<string[]>([]);
+	const [allResultList, setAllResultList] = useState<string[]>([]);
 
 	const [isRun, setIsRun] = useState<boolean>(false);
 	const [isFinish, setIsFinish] = useState<boolean>(false);
@@ -47,7 +47,7 @@ function App() {
 		setActivePrizeList(nextActivePrizeList);
 
 		setResult(`${member} - ${prize}`);
-		setPreviousResultList((prev) =>
+		setAllResultList((prev) =>
 			prev.length === 0
 				? [`${member} - ${prize}`]
 				: [...prev, `${member} - ${prize}`],
@@ -63,7 +63,7 @@ function App() {
 		setActivePrizeList([]);
 
 		setResult("");
-		setPreviousResultList([]);
+		setAllResultList([]);
 
 		setIsRun(false);
 		setIsFinish(false);
@@ -132,12 +132,12 @@ function App() {
 					</div>
 					<div className="flex gap-2">
 						<div className="grid w-full gap-2">
-							<Label htmlFor="previous-result">Previous result</Label>
+							<Label htmlFor="all-result">All result list</Label>
 							<Textarea
-								value={previousResultList.join("\n")}
+								value={allResultList.join("\n")}
 								className="h-40"
-								placeholder="Previous Result here."
-								id="previous-result"
+								placeholder="All Result list here."
+								id="all-result"
 								disabled
 							/>
 						</div>
