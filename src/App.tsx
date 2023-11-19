@@ -70,72 +70,74 @@ function App() {
 	};
 
 	return (
-		<div className="flex flex-col gap-4 p-8">
+		<div className="flex flex-col gap-4 p-8 h-screen justify-between">
 			<h1 className="text-xl">Year end party 2023, Lottery app</h1>
-			<div className="flex gap-2">
-				<div className="grid w-full gap-2">
-					<Label htmlFor="member-list">Member list</Label>
-					<Textarea
-						onChange={(e) => setMemberList(e.target.value.trim().split("\n"))}
-						className="h-40"
-						placeholder="Type member list here."
-						id="member-list"
-						disabled={isRun}
-					/>
+			<div className="flex flex-col gap-4">
+				<div className="flex gap-2">
+					<div className="grid w-full gap-2">
+						<Label htmlFor="member-list">Member list</Label>
+						<Textarea
+							onChange={(e) => setMemberList(e.target.value.trim().split("\n"))}
+							className="h-40"
+							placeholder="Type member list here."
+							id="member-list"
+							disabled={isRun}
+						/>
+					</div>
+					<div className="grid w-full gap-2">
+						<Label htmlFor="prize-list">Prize list</Label>
+						<Textarea
+							onChange={(e) => setPrizeList(e.target.value.trim().split("\n"))}
+							className="h-40"
+							placeholder="Type prize list here."
+							id="prize-list"
+							disabled={isRun}
+						/>
+					</div>
 				</div>
-				<div className="grid w-full gap-2">
-					<Label htmlFor="prize-list">Prize list</Label>
-					<Textarea
-						onChange={(e) => setPrizeList(e.target.value.trim().split("\n"))}
-						className="h-40"
-						placeholder="Type prize list here."
-						id="prize-list"
-						disabled={isRun}
-					/>
+				<div className="flex gap-2">
+					<div className="grid w-full gap-2">
+						<Label htmlFor="active-member-list">Active member list</Label>
+						<Textarea
+							value={activeMemberList.join("\n")}
+							className="h-40"
+							placeholder="active member list here."
+							id="active-member"
+							disabled
+						/>
+					</div>
+					<div className="grid w-full gap-2">
+						<Label htmlFor="active-prize-list">Active prize list</Label>
+						<Textarea
+							value={activePrizeList.join("\n")}
+							className="h-40"
+							placeholder="active prize list here."
+							id="active-prize"
+							disabled
+						/>
+					</div>
 				</div>
-			</div>
-			<div className="flex gap-2">
-				<div className="grid w-full gap-2">
-					<Label htmlFor="active-member-list">Active member list</Label>
-					<Textarea
-						value={activeMemberList.join("\n")}
-						className="h-40"
-						placeholder="active member list here."
-						id="active-member"
-						disabled
-					/>
-				</div>
-				<div className="grid w-full gap-2">
-					<Label htmlFor="active-prize-list">Active prize list</Label>
-					<Textarea
-						value={activePrizeList.join("\n")}
-						className="h-40"
-						placeholder="active prize list here."
-						id="active-prize"
-						disabled
-					/>
-				</div>
-			</div>
-			<div className="flex gap-2">
-				<div className="grid w-full gap-2">
-					<Label htmlFor="previous-result">Previous result</Label>
-					<Textarea
-						value={previousResultList.join("\n")}
-						className="h-40"
-						placeholder="Previous Result here."
-						id="previous-result"
-						disabled
-					/>
-				</div>
-				<div className="grid w-full gap-2">
-					<Label htmlFor="result">Current result</Label>
-					<Textarea
-						value={result}
-						className="h-40"
-						placeholder="Result here."
-						id="result"
-						disabled
-					/>
+				<div className="flex gap-2">
+					<div className="grid w-full gap-2">
+						<Label htmlFor="previous-result">Previous result</Label>
+						<Textarea
+							value={previousResultList.join("\n")}
+							className="h-40"
+							placeholder="Previous Result here."
+							id="previous-result"
+							disabled
+						/>
+					</div>
+					<div className="grid w-full gap-2">
+						<Label htmlFor="result">Current result</Label>
+						<Textarea
+							value={result}
+							className="h-40"
+							placeholder="Result here."
+							id="result"
+							disabled
+						/>
+					</div>
 				</div>
 			</div>
 			<div className="grid w-full gap-2">
