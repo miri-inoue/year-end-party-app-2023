@@ -69,6 +69,24 @@ function App() {
 		setIsFinish(false);
 	};
 
+	const onChangeMemberList = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+		setMemberList(
+			e.target.value
+				.split("\n")
+				.map((item) => item.trim())
+				.filter((item) => item !== ""),
+		);
+	};
+
+	const onChangePrizeList = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+		setPrizeList(
+			e.target.value
+				.split("\n")
+				.map((item) => item.trim())
+				.filter((item) => item !== ""),
+		);
+	};
+
 	return (
 		<div className="flex flex-col gap-12 p-8 h-screen justify-between">
 			<div className="flex flex-col gap-8">
@@ -86,9 +104,7 @@ function App() {
 						<div className="grid w-full gap-2">
 							<Label htmlFor="member-list">Member list</Label>
 							<Textarea
-								onChange={(e) =>
-									setMemberList(e.target.value.trim().split("\n"))
-								}
+								onChange={(e) => onChangeMemberList(e)}
 								className="h-40"
 								placeholder="Type member list here."
 								id="member-list"
@@ -98,9 +114,7 @@ function App() {
 						<div className="grid w-full gap-2">
 							<Label htmlFor="prize-list">Prize list</Label>
 							<Textarea
-								onChange={(e) =>
-									setPrizeList(e.target.value.trim().split("\n"))
-								}
+								onChange={(e) => onChangePrizeList(e)}
 								className="h-40"
 								placeholder="Type prize list here."
 								id="prize-list"
