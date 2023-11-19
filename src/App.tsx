@@ -136,7 +136,7 @@ function App() {
 							<Textarea
 								value={allResultList.join("\n")}
 								className="h-40"
-								placeholder="All Result list here."
+								placeholder="All result list here."
 								id="all-result"
 								disabled
 							/>
