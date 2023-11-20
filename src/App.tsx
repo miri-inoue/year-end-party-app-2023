@@ -6,9 +6,13 @@ import { useState } from "react";
 function App() {
 	const [memberList, setMemberList] = useState<string[]>([]);
 	const [activeMemberList, setActiveMemberList] = useState<string[]>([]);
+	const [textMemberList, setTextMemberList] = useState<string>("");
+	const [textActiveMemberList, setTextActiveMemberList] = useState<string>("");
 
 	const [prizeList, setPrizeList] = useState<string[]>([]);
 	const [activePrizeList, setActivePrizeList] = useState<string[]>([]);
+	const [textPrizeList, setTextPrizeList] = useState<string>("");
+	const [textActivePrizeList, setTextActivePrizeList] = useState<string>("");
 
 	const [result, setResult] = useState<string>("");
 	const [allResultList, setAllResultList] = useState<string[]>([]);
@@ -19,8 +23,6 @@ function App() {
 	const isRunActive =
 		memberList.length !== 0 && prizeList.length !== 0 && !isFinish;
 
-	const textActiveMemberList = activeMemberList.join("\n");
-	const textActivePrizeList = activePrizeList.join("\n");
 	const textAllResultList = allResultList.join("\n");
 
 	const handleRun = () => {
@@ -41,6 +43,7 @@ function App() {
 			(item) => item !== member,
 		);
 		setActiveMemberList(nextActiveMemberList);
+		setTextActiveMemberList(nextActiveMemberList.join("\n"));
 
 		// resolve prize
 		const randomPrizeIndex = Math.floor(Math.random() * activePrizeList.length);
@@ -49,6 +52,7 @@ function App() {
 			(item) => item !== prize,
 		);
 		setActivePrizeList(nextActivePrizeList);
+		setTextActivePrizeList(nextActivePrizeList.join("\n"));
 
 		// resolve results
 		setResult(`${member} - ${prize}`);
@@ -65,7 +69,9 @@ function App() {
 
 	const handleReset = () => {
 		setActiveMemberList([]);
+		setTextActiveMemberList("");
 		setActivePrizeList([]);
+		setTextActivePrizeList("");
 
 		setResult("");
 		setAllResultList([]);
@@ -77,6 +83,8 @@ function App() {
 	const handleOnChangeMemberList = (
 		e: React.ChangeEvent<HTMLTextAreaElement>,
 	) => {
+		setTextMemberList(e.target.value);
+		setTextActiveMemberList(e.target.value);
 		setMemberList(
 			e.target.value
 				.split("\n")
@@ -88,6 +96,8 @@ function App() {
 	const handleOnChangePrizeList = (
 		e: React.ChangeEvent<HTMLTextAreaElement>,
 	) => {
+		setTextPrizeList(e.target.value);
+		setTextActivePrizeList(e.target.value);
 		setPrizeList(
 			e.target.value
 				.split("\n")
@@ -113,8 +123,9 @@ function App() {
 						<div className="grid w-full gap-2">
 							<Label htmlFor="member-list">Member list</Label>
 							<Textarea
+								value={isRun ? textActiveMemberList : textMemberList}
 								onChange={(e) => handleOnChangeMemberList(e)}
-								className="h-40"
+								className="h-60"
 								placeholder="Type member list here."
 								id="member-list"
 								disabled={isRun}
@@ -123,8 +134,9 @@ function App() {
 						<div className="grid w-full gap-2">
 							<Label htmlFor="prize-list">Prize list</Label>
 							<Textarea
+								value={isRun ? textActivePrizeList : textPrizeList}
 								onChange={(e) => handleOnChangePrizeList(e)}
-								className="h-40"
+								className="h-60"
 								placeholder="Type prize list here."
 								id="prize-list"
 								disabled={isRun}
@@ -133,32 +145,10 @@ function App() {
 					</div>
 					<div className="flex gap-2">
 						<div className="grid w-full gap-2">
-							<Label htmlFor="active-member-list">Active member list</Label>
-							<Textarea
-								value={textActiveMemberList}
-								className="h-40"
-								placeholder="Active member list here."
-								id="active-member"
-								disabled
-							/>
-						</div>
-						<div className="grid w-full gap-2">
-							<Label htmlFor="active-prize-list">Active prize list</Label>
-							<Textarea
-								value={textActivePrizeList}
-								className="h-40"
-								placeholder="Active prize list here."
-								id="active-prize"
-								disabled
-							/>
-						</div>
-					</div>
-					<div className="flex gap-2">
-						<div className="grid w-full gap-2">
 							<Label htmlFor="all-result">All result list</Label>
 							<Textarea
 								value={textAllResultList}
-								className="h-40"
+								className="h-60"
 								placeholder="All result list here."
 								id="all-result"
 								disabled
@@ -168,7 +158,7 @@ function App() {
 							<Label htmlFor="result">Current result</Label>
 							<Textarea
 								value={result}
-								className="h-40"
+								className="h-60"
 								placeholder="Result here."
 								id="result"
 								disabled
