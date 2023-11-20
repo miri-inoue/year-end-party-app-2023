@@ -1,16 +1,23 @@
+type LotteryItem = {
+	index: number;
+	name: string;
+};
+
 type LotteryState = {
 	isRun: boolean;
 	isRunDisable: boolean;
 	isFinish: boolean;
 
 	// member
-	memberList: string[];
-	activeMemberList: string[];
+	memberList: LotteryItem[];
+	activeMemberList: LotteryItem[];
 	textMemberList: string;
 	textActiveMemberList: string;
+
 	// prize
-	prizeList: string[];
-	activePrizeList: string[];
+	prizeList: LotteryItem[];
+	activePrizeList: LotteryItem[];
+
 	textPrizeList: string;
 	textActivePrizeList: string;
 
@@ -50,8 +57,14 @@ export const lotteryReducer = (
 		case "UPDATE_MEMBER_LIST": {
 			const memberList = action.text
 				.split("\n")
-				.map((item) => item.trim())
-				.filter((item) => item !== "");
+				.map((item, index) => {
+					return {
+						index,
+						name: item.trim(),
+					};
+				})
+				.filter((item) => item.name !== "");
+
 			const isRunDisable = !(
 				memberList.length > 0 && state.prizeList.length > 0
 			);
@@ -68,8 +81,14 @@ export const lotteryReducer = (
 		case "UPDATE_PRIZE_LIST": {
 			const prizeList = action.text
 				.split("\n")
-				.map((item) => item.trim())
-				.filter((item) => item !== "");
+				.map((item, index) => {
+					return {
+						index,
+						name: item.trim(),
+					};
+				})
+				.filter((item) => item.name !== "");
+
 			const isRunDisable = !(
 				state.memberList.length > 0 && prizeList.length > 0
 			);
@@ -94,7 +113,9 @@ export const lotteryReducer = (
 			const activeMemberList = state.activeMemberList.filter(
 				(item) => item !== member,
 			);
-			const textActiveMemberList = activeMemberList.join("\n");
+			const textActiveMemberList = activeMemberList
+				.map((item) => item.name)
+				.join("\n");
 
 			// resolve prize
 			const randomPrizeIndex = Math.floor(
@@ -104,10 +125,12 @@ export const lotteryReducer = (
 			const activePrizeList = state.activePrizeList.filter(
 				(item) => item !== prize,
 			);
-			const textActivePrizeList = activePrizeList.join("\n");
+			const textActivePrizeList = activePrizeList
+				.map((item) => item.name)
+				.join("\n");
 
 			// resolve results
-			const textResult = `${member} - ${prize}`;
+			const textResult = `${member.name} - ${prize.name}`;
 			const textAllResultList = state.textAllResultList
 				? `${state.textAllResultList}\n${textResult}`
 				: textResult;
