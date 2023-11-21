@@ -61,11 +61,19 @@ const inputToLotteryItemList = (text: string): LotteryItem[] => {
 		.filter((item) => item.name !== "");
 };
 
+const lotteryItemListToText = (list: LotteryItem[]): string => {
+	return list.map((item) => item.name).join("\n");
+};
+
 const checkIsRunDisable = (
 	memberList: LotteryItem[],
 	prizeList: LotteryItem[],
 ): boolean => {
 	return !(memberList.length > 0 && prizeList.length > 0);
+};
+
+const getRandomIndex = (length: number): number => {
+	return Math.floor(Math.random() * length);
 };
 
 export const lotteryReducer = (
@@ -107,28 +115,20 @@ export const lotteryReducer = (
 			const isRun = true;
 
 			// resolve member
-			const randomMemberIndex = Math.floor(
-				Math.random() * state.activeMemberList.length,
-			);
+			const randomMemberIndex = getRandomIndex(state.activeMemberList.length);
 			const member = state.activeMemberList[randomMemberIndex];
 			const activeMemberList = state.activeMemberList.filter(
 				(item) => item !== member,
 			);
-			const textActiveMemberList = activeMemberList
-				.map((item) => item.name)
-				.join("\n");
+			const textActiveMemberList = lotteryItemListToText(activeMemberList);
 
 			// resolve prize
-			const randomPrizeIndex = Math.floor(
-				Math.random() * state.activePrizeList.length,
-			);
+			const randomPrizeIndex = getRandomIndex(state.activePrizeList.length);
 			const prize = state.activePrizeList[randomPrizeIndex];
 			const activePrizeList = state.activePrizeList.filter(
 				(item) => item !== prize,
 			);
-			const textActivePrizeList = activePrizeList
-				.map((item) => item.name)
-				.join("\n");
+			const textActivePrizeList = lotteryItemListToText(activePrizeList);
 
 			// resolve results
 			const textResult = `${member.name} - ${prize.name}`;
