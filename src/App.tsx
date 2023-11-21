@@ -17,20 +17,6 @@ function App() {
 		isRunDisable,
 	} = state;
 
-	const handleRun = () => dispatch({ type: "RUN" });
-	const handleReset = () => dispatch({ type: "RESET" });
-
-	const handleOnChangeMemberList = (
-		e: React.ChangeEvent<HTMLTextAreaElement>,
-	) => {
-		dispatch({ type: "UPDATE_MEMBER_LIST", text: e.target.value });
-	};
-	const handleOnChangePrizeList = (
-		e: React.ChangeEvent<HTMLTextAreaElement>,
-	) => {
-		dispatch({ type: "UPDATE_PRIZE_LIST", text: e.target.value });
-	};
-
 	return (
 		<div className="flex flex-col gap-12 p-8 h-screen justify-between">
 			<div className="flex flex-col gap-8">
@@ -49,7 +35,9 @@ function App() {
 							<Label htmlFor="member-list">Member list</Label>
 							<Textarea
 								value={isRun ? textActiveMemberList : textMemberList}
-								onChange={(e) => handleOnChangeMemberList(e)}
+								onChange={(e) =>
+									dispatch({ type: "UPDATE_MEMBER_LIST", text: e.target.value })
+								}
 								className="h-60"
 								placeholder="Type member list here."
 								id="member-list"
@@ -60,7 +48,9 @@ function App() {
 							<Label htmlFor="prize-list">Prize list</Label>
 							<Textarea
 								value={isRun ? textActivePrizeList : textPrizeList}
-								onChange={(e) => handleOnChangePrizeList(e)}
+								onChange={(e) =>
+									dispatch({ type: "UPDATE_PRIZE_LIST", text: e.target.value })
+								}
 								className="h-60"
 								placeholder="Type prize list here."
 								id="prize-list"
@@ -94,10 +84,14 @@ function App() {
 			</div>
 
 			<div className="flex w-full gap-2">
-				<Button className="w-full" onClick={handleReset}>
+				<Button className="w-full" onClick={() => dispatch({ type: "RESET" })}>
 					Reset
 				</Button>
-				<Button className="w-full" onClick={handleRun} disabled={isRunDisable}>
+				<Button
+					className="w-full"
+					onClick={() => dispatch({ type: "RUN" })}
+					disabled={isRunDisable}
+				>
 					Run
 				</Button>
 			</div>
