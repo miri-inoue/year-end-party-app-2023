@@ -80,6 +80,19 @@ const checkIsFinish = (memberList: LotteryItem[], prizeList: LotteryItem[]) => {
 	return memberList.length === 0 || prizeList.length === 0;
 };
 
+const getActiveList = (prevActiveList: LotteryItem[]) => {
+	const randomMemberIndex = getRandomIndex(prevActiveList.length);
+	const pickItem = prevActiveList[randomMemberIndex];
+	const activeList = prevActiveList.filter((item) => item !== pickItem);
+	const textActiveList = lotteryItemListToText(activeList);
+
+	return {
+		pickItem,
+		activeList,
+		textActiveList,
+	};
+};
+
 export const lotteryReducer = (
 	state: LotteryState,
 	action: LotteryAction,
@@ -118,21 +131,16 @@ export const lotteryReducer = (
 		case "RUN": {
 			const isRun = true;
 
-			// resolve member
-			const randomMemberIndex = getRandomIndex(state.activeMemberList.length);
-			const member = state.activeMemberList[randomMemberIndex];
-			const activeMemberList = state.activeMemberList.filter(
-				(item) => item !== member,
-			);
-			const textActiveMemberList = lotteryItemListToText(activeMemberList);
-
-			// resolve prize
-			const randomPrizeIndex = getRandomIndex(state.activePrizeList.length);
-			const prize = state.activePrizeList[randomPrizeIndex];
-			const activePrizeList = state.activePrizeList.filter(
-				(item) => item !== prize,
-			);
-			const textActivePrizeList = lotteryItemListToText(activePrizeList);
+			const {
+				pickItem: member,
+				activeList: activeMemberList,
+				textActiveList: textActiveMemberList,
+			} = getActiveList(state.activeMemberList);
+			const {
+				pickItem: prize,
+				activeList: activePrizeList,
+				textActiveList: textActivePrizeList,
+			} = getActiveList(state.activePrizeList);
 
 			// resolve results
 			const textResult = `${member.name} - ${prize.name}`;
