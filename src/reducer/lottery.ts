@@ -34,7 +34,7 @@ export type LotteryState = {
 	textAllResultList: string;
 };
 
-type LotteryAction =
+export type LotteryAction =
 	| { type: "UPDATE_MEMBER_LIST"; text: string }
 	| { type: "UPDATE_PRIZE_LIST"; text: string }
 	| { type: "RUN" }
