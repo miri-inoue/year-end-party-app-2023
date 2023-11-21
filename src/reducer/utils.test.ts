@@ -6,7 +6,7 @@ import {
 	checkIsFinish,
 	getRandomIndex,
 	getActiveList,
-} from "./lottery";
+} from "./utils";
 
 describe("inputToLotteryItemList", () => {
 	it("should return empty array when input is empty", () => {
