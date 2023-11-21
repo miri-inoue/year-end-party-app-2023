@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useReducer } from "react";
-import { initialState, lotteryReducer } from "@/lotteryReducer";
+import { initialState, lotteryReducer } from "@/reducer/lottery.ts";
 
 function App() {
 	const [state, dispatch] = useReducer(lotteryReducer, initialState);

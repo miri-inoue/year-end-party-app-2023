@@ -6,7 +6,7 @@ import {
 	checkIsFinish,
 	getRandomIndex,
 	getActiveList,
-} from "./lotteryReducer";
+} from "./lottery";
 
 describe("inputToLotteryItemList", () => {
 	it("should return empty array when input is empty", () => {
