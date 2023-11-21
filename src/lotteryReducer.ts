@@ -49,57 +49,58 @@ export const initialState = {
 	textAllResultList: "",
 };
 
+const inputToLotteryItemList = (text: string): LotteryItem[] => {
+	return text
+		.split("\n")
+		.map((item, index) => {
+			return {
+				index,
+				name: item.trim(),
+			};
+		})
+		.filter((item) => item.name !== "");
+};
+
+const checkIsRunDisable = (
+	memberList: LotteryItem[],
+	prizeList: LotteryItem[],
+): boolean => {
+	return !(memberList.length > 0 && prizeList.length > 0);
+};
+
 export const lotteryReducer = (
 	state: LotteryState,
 	action: LotteryAction,
 ): LotteryState => {
 	switch (action.type) {
 		case "UPDATE_MEMBER_LIST": {
-			const memberList = action.text
-				.split("\n")
-				.map((item, index) => {
-					return {
-						index,
-						name: item.trim(),
-					};
-				})
-				.filter((item) => item.name !== "");
+			const { text: textMemberList, text: textActiveMemberList } = action;
 
-			const isRunDisable = !(
-				memberList.length > 0 && state.prizeList.length > 0
-			);
+			const memberList = inputToLotteryItemList(textMemberList);
+			const isRunDisable = checkIsRunDisable(memberList, state.prizeList);
 
 			return {
 				...state,
 				isRunDisable,
 				memberList,
-				textMemberList: action.text,
+				textMemberList,
 				activeMemberList: memberList,
-				textActiveMemberList: action.text,
+				textActiveMemberList,
 			};
 		}
 		case "UPDATE_PRIZE_LIST": {
-			const prizeList = action.text
-				.split("\n")
-				.map((item, index) => {
-					return {
-						index,
-						name: item.trim(),
-					};
-				})
-				.filter((item) => item.name !== "");
+			const { text: textPrizeList, text: textActivePrizeList } = action;
 
-			const isRunDisable = !(
-				state.memberList.length > 0 && prizeList.length > 0
-			);
+			const prizeList = inputToLotteryItemList(textPrizeList);
+			const isRunDisable = checkIsRunDisable(state.memberList, prizeList);
 
 			return {
 				...state,
 				isRunDisable,
 				prizeList,
-				textPrizeList: action.text,
+				textPrizeList,
 				activePrizeList: prizeList,
-				textActivePrizeList: action.text,
+				textActivePrizeList,
 			};
 		}
 		case "RUN": {
