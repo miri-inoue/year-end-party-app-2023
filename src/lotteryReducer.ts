@@ -162,13 +162,10 @@ export const lotteryReducer = (
 		case "RESET": {
 			const activeMemberList = state.memberList;
 			const textActiveMemberList = state.textMemberList;
-
 			const activePrizeList = state.prizeList;
 			const textActivePrizeList = state.textPrizeList;
 
-			const isRunDisable = !(
-				state.memberList.length !== 0 && state.prizeList.length !== 0
-			);
+			const isRunDisable = checkIsRunDisable(state.memberList, state.prizeList);
 
 			return {
 				...state,
