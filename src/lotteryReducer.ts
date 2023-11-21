@@ -49,7 +49,7 @@ export const initialState = {
 	textAllResultList: "",
 };
 
-const inputToLotteryItemList = (text: string): LotteryItem[] => {
+export const inputToLotteryItemList = (text: string): LotteryItem[] => {
 	return text
 		.split("\n")
 		.map((item, index) => {
@@ -61,26 +61,29 @@ const inputToLotteryItemList = (text: string): LotteryItem[] => {
 		.filter((item) => item.name !== "");
 };
 
-const lotteryItemListToText = (list: LotteryItem[]): string => {
+export const lotteryItemListToText = (list: LotteryItem[]): string => {
 	return list.map((item) => item.name).join("\n");
 };
 
-const checkIsRunDisable = (
+export const checkIsRunDisable = (
 	memberList: LotteryItem[],
 	prizeList: LotteryItem[],
 ): boolean => {
 	return !(memberList.length > 0 && prizeList.length > 0);
 };
 
-const getRandomIndex = (length: number): number => {
-	return Math.floor(Math.random() * length);
-};
-
-const checkIsFinish = (memberList: LotteryItem[], prizeList: LotteryItem[]) => {
+export const checkIsFinish = (
+	memberList: LotteryItem[],
+	prizeList: LotteryItem[],
+) => {
 	return memberList.length === 0 || prizeList.length === 0;
 };
 
-const getActiveList = (prevActiveList: LotteryItem[]) => {
+export const getRandomIndex = (length: number): number => {
+	return Math.floor(Math.random() * length);
+};
+
+export const getActiveList = (prevActiveList: LotteryItem[]) => {
 	const randomMemberIndex = getRandomIndex(prevActiveList.length);
 	const pickItem = prevActiveList[randomMemberIndex];
 	const activeList = prevActiveList.filter((item) => item !== pickItem);
