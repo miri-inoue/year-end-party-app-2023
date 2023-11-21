@@ -76,6 +76,10 @@ const getRandomIndex = (length: number): number => {
 	return Math.floor(Math.random() * length);
 };
 
+const checkIsFinish = (memberList: LotteryItem[], prizeList: LotteryItem[]) => {
+	return memberList.length === 0 || prizeList.length === 0;
+};
+
 export const lotteryReducer = (
 	state: LotteryState,
 	action: LotteryAction,
@@ -136,9 +140,7 @@ export const lotteryReducer = (
 				? `${state.textAllResultList}\n${textResult}`
 				: textResult;
 
-			const isMemberEmpty = activeMemberList.length === 0;
-			const isPrizeEmpty = activePrizeList.length === 0;
-			const isFinish = isMemberEmpty || isPrizeEmpty;
+			const isFinish = checkIsFinish(activeMemberList, activePrizeList);
 
 			const isRunDisable = !(
 				state.memberList.length !== 0 &&
