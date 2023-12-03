@@ -96,7 +96,6 @@ function App() {
 		if (prize.list.length <= 0) return;
 		setIsDisableStart(true);
 		setIsDisableStop(false);
-
 		if (currentPrize !== "" && result != null) {
 			setResultList([
 				...resultList,
@@ -111,13 +110,14 @@ function App() {
 			list: nextPrize,
 			initialText: prize.initialText,
 		});
+		setIsLock(true);
 		onStart();
 
-		if (result == null) return;
+		// is initial start
+		if (member.initialText.split("\n").length === member.list.length) return;
+
 		const nextItems = items.filter((item) => item.name !== result);
 		setItems(nextItems);
-		setItems(nextItems);
-		setIsLock(true);
 	};
 
 	const handleStop = () => {
