@@ -10,6 +10,7 @@
     "coverage": "vitest run --coverage",
     "lint": "biome lint ./src",
     "check": "biome check ./src",
+    "check:apply": "biome check --apply ./src",
     "build": "tsc && vite build",
     "predeploy": "pnpm build",
     "deploy": "pnpm predeploy && gh-pages -d dist",
