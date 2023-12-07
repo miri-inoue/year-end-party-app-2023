@@ -42,7 +42,14 @@ export type RouletteAction =
 	| { type: "ON_SPIN_COMPLETE"; result: string };
 
 export const initialState: RouletteState = {
-	items: [],
+	items: [
+		{ name: "" },
+		{ name: "" },
+		{ name: "" },
+		{ name: "" },
+		{ name: "" },
+		{ name: "" },
+	],
 	memberListInput: "",
 	memberListInitial: "",
 	memberList: [],
