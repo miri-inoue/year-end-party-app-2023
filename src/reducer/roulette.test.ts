@@ -268,5 +268,61 @@ describe("lotteryReducer", () => {
 				isDisableInputForm: true,
 			});
 		});
+		it("dispatch when empty prizeList", () => {
+			const state = {
+				...initialState,
+				items: [
+					{
+						name: "member1",
+					},
+					{
+						name: "member2",
+					},
+					{
+						name: "member3",
+					},
+				],
+				memberList: ["member1", "member2", "member3"],
+				memberListInput: "member1\nmember2\nmember3",
+				prizeList: [],
+				prizeListInput: "",
+				currentPrize: "prize1",
+				isDisableStart: true,
+				isDisableStop: true,
+				isDisableReset: true,
+				isDisableInputForm: true,
+			};
+			const action: RouletteAction = {
+				type: "ON_SPIN_COMPLETE",
+				result: "member2",
+			};
+			const actual = rouletteReducer(state, action);
+			expect(actual).toEqual({
+				...state,
+				items: [
+					{
+						name: "member1",
+					},
+					{
+						name: "member2",
+					},
+					{
+						name: "member3",
+					},
+				],
+				memberList: ["member1", "member3"],
+				memberListInput: "member1\nmember3",
+				prizeList: [],
+				prizeListInput: "",
+				currentMember: "member2",
+				currentPrize: "prize1",
+				currentResult: "member2 - prize1",
+				resultList: ["member2 - prize1"],
+				isDisableStart: true,
+				isDisableStop: true,
+				isDisableReset: false,
+				isDisableInputForm: true,
+			});
+		});
 	});
 });
