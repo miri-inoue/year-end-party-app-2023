@@ -13,7 +13,7 @@ describe("lotteryReducer", () => {
 	});
 
 	describe("action: UPDATE_MEMBER_LIST", () => {
-		it("should return state when action", () => {
+		it("dispatch", () => {
 			const state = initialState;
 			const action: RouletteAction = {
 				type: "UPDATE_MEMBER_LIST",
@@ -21,7 +21,7 @@ describe("lotteryReducer", () => {
 			};
 			const actual = rouletteReducer(state, action);
 			expect(actual).toEqual({
-				...initialState,
+				...state,
 				items: [
 					{
 						name: "member1",
@@ -41,7 +41,7 @@ describe("lotteryReducer", () => {
 	});
 
 	describe("action: UPDATE_PRIZE_LIST", () => {
-		it("should return state when action", () => {
+		it("dispatch", () => {
 			const state = initialState;
 			const action: RouletteAction = {
 				type: "UPDATE_PRIZE_LIST",
@@ -49,7 +49,7 @@ describe("lotteryReducer", () => {
 			};
 			const actual = rouletteReducer(state, action);
 			expect(actual).toEqual({
-				...initialState,
+				...state,
 				prizeListInitial: "prize1\nprize2\nprize3",
 				prizeListInput: "prize1\nprize2\nprize3",
 				prizeList: ["prize1", "prize2", "prize3"],
@@ -57,58 +57,216 @@ describe("lotteryReducer", () => {
 		});
 	});
 
-	it("should return state when action is STOP", () => {
-		const state = initialState;
-		const action: RouletteAction = { type: "STOP" };
-		const actual = rouletteReducer(state, action);
-		expect(actual).toEqual({
-			...initialState,
-			isDisableStop: true,
+	describe("action: START", () => {
+		it("dispatch when initial run", () => {
+			const state = {
+				...initialState,
+				items: [
+					{
+						name: "member1",
+					},
+					{
+						name: "member2",
+					},
+					{
+						name: "member3",
+					},
+				],
+				memberList: ["member1", "member2", "member3"],
+				memberListInput: "member1\nmember2\nmember3",
+				memberListInitial: "member1\nmember2\nmember3",
+				prizeList: ["prize1", "prize2", "prize3"],
+				prizeListInput: "prize1\nprize2\nprize3",
+				prizeListInitial: "prize1\nprize2\nprize3",
+			};
+			const action: RouletteAction = { type: "START" };
+			const actual = rouletteReducer(state, action);
+			expect(actual).toEqual({
+				...state,
+				items: [
+					{
+						name: "member1",
+					},
+					{
+						name: "member2",
+					},
+					{
+						name: "member3",
+					},
+				],
+				memberList: ["member1", "member2", "member3"],
+				memberListInput: "member1\nmember2\nmember3",
+				memberListInitial: "member1\nmember2\nmember3",
+				prizeList: ["prize2", "prize3"],
+				prizeListInput: "prize2\nprize3",
+				prizeListInitial: "prize1\nprize2\nprize3",
+				currentPrize: "prize1",
+				isDisableStart: true,
+				isDisableStop: false,
+				isDisableReset: true,
+				isDisableInputForm: true,
+			});
+		});
+		it("dispatch when second run", () => {
+			const state = {
+				...initialState,
+				items: [
+					{
+						name: "member2",
+					},
+					{
+						name: "member3",
+					},
+				],
+				memberListInitial: "member1\nmember2\nmember3",
+				memberList: ["member2", "member3"],
+				memberListInput: "member2\nmember3",
+				prizeListInitial: "prize1\nprize2\nprize3",
+				prizeList: ["prize2", "prize3"],
+				prizeListInput: "prize2\nprize3",
+			};
+			const action: RouletteAction = { type: "START" };
+			const actual = rouletteReducer(state, action);
+			expect(actual).toEqual({
+				...state,
+				items: [
+					{
+						name: "member2",
+					},
+					{
+						name: "member3",
+					},
+				],
+				memberListInitial: "member1\nmember2\nmember3",
+				memberList: ["member2", "member3"],
+				memberListInput: "member2\nmember3",
+				prizeList: ["prize3"],
+				prizeListInput: "prize3",
+				prizeListInitial: "prize1\nprize2\nprize3",
+				currentPrize: "prize2",
+				isDisableStart: true,
+				isDisableStop: false,
+				isDisableReset: true,
+				isDisableInputForm: true,
+			});
 		});
 	});
 
-	it("should return state when action is RESET", () => {
-		const state = {
-			items: [],
-			memberListInput: "member1\nmember2\nmember3",
-			memberListInitial: "member1\nmember2\nmember3",
-			memberList: ["member1", "member2", "member3"],
+	describe("action: STOP", () => {
+		it("dispatch", () => {
+			const state = initialState;
+			const action: RouletteAction = { type: "STOP" };
+			const actual = rouletteReducer(state, action);
+			expect(actual).toEqual({
+				...initialState,
+				isDisableStop: true,
+			});
+		});
+	});
 
-			prizeListInput: "prize1\nprize2\nprize3",
-			prizeListInitial: "prize1\nprize2\nprize3",
-			prizeList: ["prize1", "prize2", "prize3"],
+	describe("action: RESET", () => {
+		it("dispatch", () => {
+			const state = {
+				items: [],
+				memberListInput: "member1\nmember2\nmember3",
+				memberListInitial: "member1\nmember2\nmember3",
+				memberList: ["member1", "member2", "member3"],
 
-			currentMember: "",
-			currentPrize: "",
-			currentResult: "",
-			resultList: [],
+				prizeListInput: "prize1\nprize2\nprize3",
+				prizeListInitial: "prize1\nprize2\nprize3",
+				prizeList: ["prize1", "prize2", "prize3"],
 
-			isDisableStart: false,
-			isDisableStop: false,
-			isDisableReset: false,
-			isDisableInputForm: true,
-		};
-		const action: RouletteAction = { type: "RESET" };
-		const actual = rouletteReducer(state, action);
-		expect(actual).toEqual({
-			items: [],
-			memberListInput: "member1\nmember2\nmember3",
-			memberListInitial: "member1\nmember2\nmember3",
-			memberList: ["member1", "member2", "member3"],
+				currentMember: "",
+				currentPrize: "",
+				currentResult: "",
+				resultList: [],
 
-			prizeListInput: "prize1\nprize2\nprize3",
-			prizeListInitial: "prize1\nprize2\nprize3",
-			prizeList: ["prize1", "prize2", "prize3"],
+				isDisableStart: false,
+				isDisableStop: false,
+				isDisableReset: false,
+				isDisableInputForm: true,
+			};
+			const action: RouletteAction = { type: "RESET" };
+			const actual = rouletteReducer(state, action);
+			expect(actual).toEqual({
+				items: [],
+				memberListInput: "member1\nmember2\nmember3",
+				memberListInitial: "member1\nmember2\nmember3",
+				memberList: ["member1", "member2", "member3"],
 
-			currentMember: "",
-			currentResult: "",
-			currentPrize: "",
-			resultList: [],
+				prizeListInput: "prize1\nprize2\nprize3",
+				prizeListInitial: "prize1\nprize2\nprize3",
+				prizeList: ["prize1", "prize2", "prize3"],
 
-			isDisableStart: false,
-			isDisableStop: true,
-			isDisableReset: true,
-			isDisableInputForm: false,
+				currentMember: "",
+				currentResult: "",
+				currentPrize: "",
+				resultList: [],
+
+				isDisableStart: false,
+				isDisableStop: true,
+				isDisableReset: true,
+				isDisableInputForm: false,
+			});
+		});
+	});
+
+	describe("action: ON_SPIN_COMPLETE", () => {
+		it("dispatch when not empty prizeList", () => {
+			const state = {
+				...initialState,
+				items: [
+					{
+						name: "member1",
+					},
+					{
+						name: "member2",
+					},
+					{
+						name: "member3",
+					},
+				],
+				memberList: ["member1", "member2", "member3"],
+				memberListInput: "member1\nmember2\nmember3",
+				prizeList: ["prize2", "prize3"],
+				prizeListInput: "prize2\nprize3",
+				currentPrize: "prize1",
+				isDisableStart: true,
+				isDisableStop: true,
+				isDisableReset: true,
+				isDisableInputForm: true,
+			};
+			const action: RouletteAction = {
+				type: "ON_SPIN_COMPLETE",
+				result: "member2",
+			};
+			const actual = rouletteReducer(state, action);
+			expect(actual).toEqual({
+				...state,
+				items: [
+					{
+						name: "member1",
+					},
+					{
+						name: "member2",
+					},
+					{
+						name: "member3",
+					},
+				],
+				memberList: ["member1", "member3"],
+				memberListInput: "member1\nmember3",
+				prizeList: ["prize2", "prize3"],
+				prizeListInput: "prize2\nprize3",
+				currentMember: "member2",
+				currentPrize: "prize1",
+				currentResult: "member2 - prize1",
+				resultList: ["member2 - prize1"],
+				isDisableStart: false,
+				isDisableStop: true,
+				isDisableReset: false,
+				isDisableInputForm: true,
+			});
 		});
 	});
 });
