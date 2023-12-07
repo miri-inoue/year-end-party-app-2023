@@ -5,7 +5,6 @@ describe("lotteryReducer", () => {
 	it("should throw error when action is not valid", () => {
 		const state = initialState;
 		const action = { type: "INVALID" };
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-expect-error
 		expect(() => rouletteReducer(state, action)).toThrowError(
 			"Invalid action type",
