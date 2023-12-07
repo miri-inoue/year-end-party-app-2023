@@ -3,6 +3,7 @@ import {
 	getCurrentPrize,
 	getCurrentResult,
 	getIsDisableStart,
+	getIsDuplicate,
 	getIsInitialStart,
 	getNextMemberList,
 	getNextPrizeList,
@@ -134,6 +135,19 @@ describe("lottery functions", () => {
 				"member2 - prize2",
 				"member3 - prize3",
 			]);
+		});
+	});
+
+	describe("getIsDuplicate", () => {
+		it("return true when list has duplicate item", () => {
+			const list = ["member1", "member2", "member3", "member1"];
+			const actual = getIsDuplicate(list);
+			expect(actual).toEqual(true);
+		});
+		it("return false when list has not duplicate item", () => {
+			const list = ["member1", "member2", "member3"];
+			const actual = getIsDuplicate(list);
+			expect(actual).toEqual(false);
 		});
 	});
 });

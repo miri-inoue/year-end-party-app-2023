@@ -12,7 +12,7 @@ describe("lotteryReducer", () => {
 	});
 
 	describe("action: UPDATE_MEMBER_LIST", () => {
-		it("dispatch", () => {
+		it("dispatch when input text", () => {
 			const state = initialState;
 			const action: RouletteAction = {
 				type: "UPDATE_MEMBER_LIST",
@@ -35,12 +35,29 @@ describe("lotteryReducer", () => {
 				memberListInitial: "member1\nmember2\nmember3",
 				memberListInput: "member1\nmember2\nmember3",
 				memberList: ["member1", "member2", "member3"],
+				isErrorMemberInput: false,
+			});
+		});
+
+		it("dispatch when input text, but duplicate member", () => {
+			const state = initialState;
+			const action: RouletteAction = {
+				type: "UPDATE_MEMBER_LIST",
+				memberListInput: "member1\nmember1\nmember3",
+			};
+			const actual = rouletteReducer(state, action);
+			expect(actual).toEqual({
+				...state,
+				memberListInitial: "",
+				memberListInput: "member1\nmember1\nmember3",
+				memberList: [],
+				isErrorMemberInput: true,
 			});
 		});
 	});
 
 	describe("action: UPDATE_PRIZE_LIST", () => {
-		it("dispatch", () => {
+		it("dispatch when input text", () => {
 			const state = initialState;
 			const action: RouletteAction = {
 				type: "UPDATE_PRIZE_LIST",

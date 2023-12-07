@@ -2,6 +2,7 @@ import {
 	getCurrentPrize,
 	getCurrentResult,
 	getIsDisableStart,
+	getIsDuplicate,
 	getIsInitialStart,
 	getJoinInputText,
 	getNextMemberList,
@@ -31,6 +32,8 @@ export type RouletteState = {
 	isDisableStop: boolean;
 	isDisableReset: boolean;
 	isDisableInputForm: boolean;
+
+	isErrorMemberInput: boolean;
 };
 
 export type RouletteAction =
@@ -67,6 +70,8 @@ export const initialState: RouletteState = {
 	isDisableStop: true,
 	isDisableReset: true,
 	isDisableInputForm: false,
+
+	isErrorMemberInput: false,
 };
 
 export const rouletteReducer = (
@@ -77,6 +82,16 @@ export const rouletteReducer = (
 		case "UPDATE_MEMBER_LIST": {
 			const { memberListInput } = action;
 			const memberList = getSplitInputByNewLine(memberListInput);
+			const isDuplicateMember = getIsDuplicate(memberList);
+			if (isDuplicateMember) {
+				return {
+					...state,
+					memberListInput,
+					isDisableStart: true,
+					isErrorMemberInput: true,
+				};
+			}
+
 			const items = getRouletteItems(memberList);
 			const memberListInitial = getJoinInputText(memberList);
 			const isDisableStart = getIsDisableStart(memberList, state.prizeList);
@@ -94,6 +109,7 @@ export const rouletteReducer = (
 			const prizeList = getSplitInputByNewLine(prizeListInput);
 			const prizeListInitial = getJoinInputText(prizeList);
 			const isDisableStart = getIsDisableStart(state.memberList, prizeList);
+
 			return {
 				...state,
 				prizeListInitial,

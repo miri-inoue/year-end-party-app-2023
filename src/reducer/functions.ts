@@ -76,3 +76,8 @@ export const getResultList = (
 	const result = [...resultList, currentResult];
 	return result;
 };
+
+export const getIsDuplicate = (list: string[]) => {
+	const result = new Set(list).size !== list.length;
+	return result;
+};
