@@ -1,9 +1,12 @@
 import { describe, expect, it } from "vitest";
 import {
 	getCurrentPrize,
+	getCurrentResult,
 	getIsDisableStart,
+	getIsInitialStart,
 	getNextMemberList,
 	getNextPrizeList,
+	getResultList,
 	getResultListOutput,
 	getRouletteItems,
 	getSplitInputByNewLine,
@@ -45,11 +48,25 @@ describe("lottery functions", () => {
 		expect(actual).toEqual(["prize2", "prize3"]);
 	});
 
+	it("getIsDisableStart - return true when memberList is empty", () => {
+		const prizeList: string[] = [];
+		const memberList: string[] = [];
+		const actual = getIsDisableStart(memberList, prizeList);
+		expect(actual).toEqual(true);
+	});
+
 	it("getIsDisableStart - return true when prizeList is empty", () => {
 		const prizeList: string[] = [];
 		const memberList = ["member1", "member2", "member3"];
 		const actual = getIsDisableStart(memberList, prizeList);
 		expect(actual).toEqual(true);
+	});
+
+	it("getIsDisableStart - return false when memberList and prizeList are not empty", () => {
+		const prizeList = ["prize1", "prize2", "prize3"];
+		const memberList = ["member1", "member2", "member3"];
+		const actual = getIsDisableStart(memberList, prizeList);
+		expect(actual).toEqual(false);
 	});
 
 	it("getResultListOutput - return result list", () => {
@@ -68,5 +85,36 @@ describe("lottery functions", () => {
 		const input = "member1\nmember2\nmember3";
 		const actual = getSplitInputByNewLine(input);
 		expect(actual).toEqual(["member1", "member2", "member3"]);
+	});
+
+	it("getIsInitialStart - return true when memberList and memberListInput are same length", () => {
+		const memberList = ["member1", "member2", "member3"];
+		const memberListInput = "member1\nmember2\nmember3";
+		const actual = getIsInitialStart(memberList, memberListInput);
+		expect(actual).toEqual(true);
+	});
+
+	it("getIsInitialStart - return false when memberList and memberListInput are not same length", () => {
+		const memberList = ["member1", "member2", "member3"];
+		const memberListInput = "member1\nmember2\nmember3\nmember4";
+		const actual = getIsInitialStart(memberList, memberListInput);
+		expect(actual).toEqual(false);
+	});
+
+	it("getCurrentResult - return current result", () => {
+		const actual = getCurrentResult("member1", "prize1");
+		expect(actual).toEqual("member1 - prize1");
+	});
+
+	it("getResultList - return result list", () => {
+		const actual = getResultList(
+			["member1 - prize1", "member2 - prize2"],
+			"member3 - prize3",
+		);
+		expect(actual).toEqual([
+			"member1 - prize1",
+			"member2 - prize2",
+			"member3 - prize3",
+		]);
 	});
 });
