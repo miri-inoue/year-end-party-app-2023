@@ -30,8 +30,8 @@ dependencies:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
   react-hook-roulette:
-    specifier: ^0.0.5
-    version: 0.0.5(@types/react-dom@18.2.17)(@types/react@18.2.41)(react@18.2.0)
+    specifier: ^0.0.6
+    version: 0.0.6(@types/react-dom@18.2.17)(@types/react@18.2.41)
   tailwind-merge:
     specifier: ^2.1.0
     version: 2.1.0
@@ -2480,12 +2480,11 @@ packages:
       scheduler: 0.23.0
     dev: false
 
-  /react-hook-roulette@0.0.5(@types/react-dom@18.2.17)(@types/react@18.2.41)(react@18.2.0):
-    resolution: {integrity: sha512-h/EQx6rF3uST7Hv8q28u9oMf4RR5nhffbLuqCOtGfvjAtcYDf5tZj6HiHdeSCXVG3b6fdC0Z6pzRZfG3v7GM5A==}
+  /react-hook-roulette@0.0.6(@types/react-dom@18.2.17)(@types/react@18.2.41):
+    resolution: {integrity: sha512-Vz4BrJxhH0p5jv1p/df+zbu9TcOpfW+svtlBnYFx2oshS8a2bNdDMr8k4hTCQPGyR/RqekemWoVTaZ7mi8bqkg==}
     peerDependencies:
       '@types/react': ^18
       '@types/react-dom': ^18
-      react: ^18
     dependencies:
       '@types/react': 18.2.41
       '@types/react-dom': 18.2.17
