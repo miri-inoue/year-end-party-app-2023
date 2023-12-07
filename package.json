@@ -8,10 +8,11 @@
     "dev": "vite",
     "test": "vitest",
     "coverage": "vitest run --coverage",
+    "lint": "biome lint ./src",
+    "check": "biome check ./src",
     "build": "tsc && vite build",
     "predeploy": "pnpm build",
     "deploy": "pnpm predeploy && gh-pages -d dist",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
