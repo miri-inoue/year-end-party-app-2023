@@ -201,6 +201,8 @@ describe("lotteryReducer", () => {
 				isDisableStop: false,
 				isDisableReset: false,
 				isDisableInputForm: true,
+
+				isErrorMemberInput: false,
 			};
 			const action: RouletteAction = { type: "RESET" };
 			const actual = rouletteReducer(state, action);
@@ -223,6 +225,8 @@ describe("lotteryReducer", () => {
 				isDisableStop: true,
 				isDisableReset: true,
 				isDisableInputForm: false,
+
+				isErrorMemberInput: false,
 			});
 		});
 	});
