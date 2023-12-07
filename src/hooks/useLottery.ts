@@ -26,7 +26,7 @@ export const useLottery = () => {
 		options: {
 			size: 600,
 		},
-		onComplete: (result) => {
+		onSpinEnd: (result) => {
 			dispatch({ type: "ON_SPIN_COMPLETE", result });
 		},
 	});
