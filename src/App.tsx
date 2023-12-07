@@ -1,8 +1,3 @@
-import { useLottery } from "./hooks/useLottery";
-import { Roulette } from "react-hook-roulette";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import {
 	AlertDialog,
 	AlertDialogAction,
@@ -14,6 +9,11 @@ import {
 	AlertDialogTitle,
 	AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Roulette } from "react-hook-roulette";
+import { useLottery } from "./hooks/useLottery";
 
 function App() {
 	const {

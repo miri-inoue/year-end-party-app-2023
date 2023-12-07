@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import { useRoulette } from "react-hook-roulette";
-import { rouletteReducer, initialState } from "../reducer/roulette";
 import { getResultListOutput } from "../reducer/functions";
+import { initialState, rouletteReducer } from "../reducer/roulette";
 
 export const useLottery = () => {
 	const [state, dispatch] = useReducer(rouletteReducer, initialState);
