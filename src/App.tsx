@@ -17,6 +17,8 @@ import { useLottery } from "./hooks/useLottery";
 import title from "./assets/title.png";
 import arrow from "./assets/img_arrow.png";
 import smile from "./assets/img_smile.png";
+import start from "./assets/text_start.png";
+import stop from "./assets/text_stop.png";
 
 function App() {
 	const {
@@ -53,18 +55,18 @@ function App() {
 					<div className="flex flex-col gap-12 justify-center">
 						<div className="flex gap-2">
 							<Button
-								className="w-full bg-indigo-700 color-white"
+								className="w-full py-10 w-60 rounded-full border-8 border-yellow-400 bg-gradient-to-b from-white to-yellow-300"
 								onClick={handleStart}
 								disabled={isDisableStart}
 							>
-								Start
+								<img src={start} alt="スタート" />
 							</Button>
 							<Button
-								className="w-full bg-indigo-700 color-white"
+								className="w-full py-10 w-60 rounded-full border-8 border-yellow-400 bg-gradient-to-b from-white to-yellow-300"
 								onClick={handleStop}
 								disabled={isDisableStop}
 							>
-								Stop
+								<img src={stop} alt="" />
 							</Button>
 						</div>
 						<div className="flex flex-col gap-2">
