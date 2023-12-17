@@ -16,6 +16,7 @@ import { Roulette } from "react-hook-roulette";
 import { useLottery } from "./hooks/useLottery";
 import title from "./assets/title.png";
 import arrow from "./assets/img_arrow.png";
+import smile from "./assets/img_smile.png";
 
 function App() {
 	const {
@@ -47,6 +48,7 @@ function App() {
 					<div className="relative">
 						<Roulette roulette={roulette} />
 						<div className="absolute -right-20 top-2/4 -translate-y-1/2"><img src={arrow} alt="" /></div>
+						<div className="absolute top-2/4 left-2/4 -translate-y-1/2 -translate-x-1/2"><img src={smile} alt="" /></div>
 					</div>
 					<div className="flex flex-col gap-12 justify-center">
 						<div className="flex gap-2">
