@@ -59,22 +59,22 @@ function App() {
 					<div className="flex flex-col gap-8 justify-center items-center">
 						<div className="flex gap-5">
 							<Button
-								className="w-full py-10 w-60 rounded-full border-8 border-yellow-400 bg-gradient-to-b from-white to-yellow-300"
+								className="w-full py-10 w-72 rounded-full border-8 border-yellow-400 bg-gradient-to-b from-white to-yellow-300"
 								onClick={handleStart}
 								disabled={isDisableStart}
 							>
 								<img src={start} alt="スタート" />
 							</Button>
 							<Button
-								className="w-full py-10 w-60 rounded-full border-8 border-yellow-400 bg-gradient-to-b from-white to-yellow-300"
+								className="w-full py-10 w-72 rounded-full border-8 border-yellow-400 bg-gradient-to-b from-white to-yellow-300"
 								onClick={handleStop}
 								disabled={isDisableStop}
 							>
 								<img src={stop} alt="" />
 							</Button>
 						</div>
-						<div className="flex flex-col gap-2 bg-white items-center p-4 w-11/12">
-							<p className="text-2xl font-semibold"><span className="pr-4 text-pink-600">{currentPrize}</span>ゎ。。。</p>
+						<div className="flex flex-col gap-2 bg-white items-center p-8 w-11/12">
+							<p className="text-2xl font-semibold"><span className="pr-2 text-pink-600">{currentPrize}</span>ゎ。。。</p>
 							<p className="text-3xl font-semibold">{currentMember}±ω</p>
 						</div>
 						<div className="grid w-11/12 gap-2">
