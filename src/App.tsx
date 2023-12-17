@@ -14,6 +14,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Roulette } from "react-hook-roulette";
 import { useLottery } from "./hooks/useLottery";
+import title from "./assets/title.png";
 
 function App() {
 	const {
@@ -37,15 +38,10 @@ function App() {
 
 	return (
 		<div className="flex flex-col gap-12 p-16 justify-between">
+			
 			<div className="flex flex-col items-center gap-16 h-screen">
-				<div className="flex gap-2 items-baseline">
-					<h1 className="text-4xl">Year end party 2023, Lottery app</h1>
-					<a
-						className="text-sm text-blue-500 hover:underline"
-						href="https://github.com/camiha/year-end-party-app-2023"
-					>
-						(source code here)
-					</a>
+				<div className="">
+					<h1 className="text-4xl"><img src={title} alt="" /></h1>
 				</div>
 				<div className="flex gap-24">
 					<div>
