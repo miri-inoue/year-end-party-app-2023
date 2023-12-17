@@ -14,7 +14,9 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Roulette } from "react-hook-roulette";
 import { useLottery } from "./hooks/useLottery";
-import title from "./assets/title.png";
+import bounenkai from "./assets/text_bounenkai.png";
+import untgroup from "./assets/text_untgroup.png";
+import year from "./assets/text_year.png";
 import arrow from "./assets/img_arrow.png";
 import smile from "./assets/img_smile.png";
 import start from "./assets/text_start.png";
@@ -43,9 +45,11 @@ function App() {
 	return (
 		<div className="bg-pink-kirakira flex flex-col gap-12 p-16 justify-between">
 			<div className="flex flex-col items-center gap-16 h-screen">
-				<div className="">
-					<h1 className="text-4xl"><img src={title} alt="" /></h1>
-				</div>
+				<h1 className="relative">
+					<img className="z-50 relative" src={bounenkai} alt="忘年会ルーレット！！" />
+					<img className="absolute -top-10 -left-36" src={year} alt="2023" />
+					<img className="absolute -top-8 left-36" src={untgroup} alt="un-T group！" />
+				</h1>
 				<div className="flex gap-24">
 					<div className="relative">
 						<Roulette roulette={roulette} />
