@@ -38,8 +38,7 @@ function App() {
 	} = useLottery();
 
 	return (
-		<div className="flex flex-col gap-12 p-16 justify-between">
-			
+		<div className="bg-pink-kirakira flex flex-col gap-12 p-16 justify-between">
 			<div className="flex flex-col items-center gap-16 h-screen">
 				<div className="">
 					<h1 className="text-4xl"><img src={title} alt="" /></h1>
