@@ -54,17 +54,17 @@ function App() {
 						<div className="flex gap-2">
 							<Button
 								className="w-full bg-indigo-700 color-white"
-								onClick={handleStop}
-								disabled={isDisableStop}
-							>
-								Stop
-							</Button>
-							<Button
-								className="w-full bg-indigo-700 color-white"
 								onClick={handleStart}
 								disabled={isDisableStart}
 							>
 								Start
+							</Button>
+							<Button
+								className="w-full bg-indigo-700 color-white"
+								onClick={handleStop}
+								disabled={isDisableStop}
+							>
+								Stop
 							</Button>
 						</div>
 						<div className="flex flex-col gap-2">
