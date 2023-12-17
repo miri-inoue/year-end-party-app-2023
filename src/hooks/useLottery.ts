@@ -27,6 +27,7 @@ export const useLottery = () => {
 			size: 600,
 			determineAngle: 0,
 			showArrow: false,
+			maxSpeed: 25,
 			style: {
 				canvas: {
 					bg: "transparent",
