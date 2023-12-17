@@ -15,6 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Roulette } from "react-hook-roulette";
 import { useLottery } from "./hooks/useLottery";
 import title from "./assets/title.png";
+import arrow from "./assets/img_arrow.png";
 
 function App() {
 	const {
@@ -44,8 +45,9 @@ function App() {
 					<h1 className="text-4xl"><img src={title} alt="" /></h1>
 				</div>
 				<div className="flex gap-24">
-					<div>
+					<div className="relative">
 						<Roulette roulette={roulette} />
+						<div className="absolute -right-20 top-2/4 -translate-y-1/2"><img src={arrow} alt="" /></div>
 					</div>
 					<div className="flex flex-col gap-12 justify-center">
 						<div className="flex gap-2">
