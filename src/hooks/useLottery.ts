@@ -39,7 +39,7 @@ export const useLottery = () => {
 					font: "16px Arial",
 					align: "right",
 					baseline: "middle",
-					offset: 0.75,
+					offset: 0.87,
 					defaultColor: "#000",
 				},
 				pie: {
