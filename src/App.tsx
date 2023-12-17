@@ -73,11 +73,9 @@ function App() {
 								<img src={stop} alt="" />
 							</Button>
 						</div>
-						<div className="flex flex-col gap-2">
-							<p className="text-lg font-medium">winner: {currentMember}</p>
-							<p className="text-lg font-medium">
-								current prize: {currentPrize}
-							</p>
+						<div className="flex flex-col gap-2 bg-white items-center p-4">
+							<p className="text-2xl font-semibold"><span className="pr-4 text-pink-600">{currentPrize}</span>ゎ。。。</p>
+							<p className="text-3xl font-semibold">{currentMember}±ω</p>
 						</div>
 						<div className="grid w-full gap-2">
 							<Label htmlFor="all-result">All result list</Label>
