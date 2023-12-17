@@ -44,7 +44,7 @@ function App() {
 
 	return (
 		<div className="bg-pink-kirakira flex flex-col gap-12 p-16 justify-between">
-			<div className="flex flex-col items-center gap-16 h-screen">
+			<div className="flex flex-col items-center gap-4 h-screen">
 				<h1 className="relative">
 					<img className="z-50 relative" src={bounenkai} alt="忘年会ルーレット！！" />
 					<img className="absolute -top-10 -left-36" src={year} alt="2023" />
@@ -78,9 +78,9 @@ function App() {
 							<p className="text-3xl font-semibold">{currentMember}±ω</p>
 						</div>
 						<div className="grid w-full gap-2">
-							<Label htmlFor="all-result">All result list</Label>
+							{/* <Label htmlFor="all-result">All result list</Label> */}
 							<Textarea
-								className="w-96 h-60"
+								className="h-60"
 								value={resultListOutput}
 								disabled={true}
 							/>
