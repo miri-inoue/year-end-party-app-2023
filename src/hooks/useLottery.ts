@@ -4,52 +4,6 @@ import { getResultListOutput } from "../reducer/functions";
 import { initialState, rouletteReducer } from "../reducer/roulette";
 
 export const useLottery = () => {
-
-	const option = {
-		size: 100,
-		maxSpeed: 100,
-		rotationDirection: "clockwise",
-		acceleration: 1,
-		deceleration: 1,
-		initialAngle: 0,
-		determineAngle: 45,
-		showArrow: true,
-		style: {
-			canvas: {
-				bg: "#fff",
-			},
-			arrow: {
-				bg: "#000",
-				size: 16,
-			},
-			label: {
-				font: "16px Arial",
-				align: "right",
-				baseline: "middle",
-				offset: 0.75,
-				defaultColor: "#000",
-			},
-			pie: {
-				theme: [
-					{
-						bg: "#DA4193",
-					},
-					{
-						bg: "#E24A35",
-					},
-					{
-						bg: "#6366f1",
-						color: "#fff",
-					},
-					{
-						bg: "#4338ca",
-						color: "#fff",
-					},
-				],
-			},
-		},
-	};
-
 	const [state, dispatch] = useReducer(rouletteReducer, initialState);
 	const {
 		items,
@@ -72,6 +26,7 @@ export const useLottery = () => {
 		options: {
 			size: 600,
 			determineAngle: 0,
+			showArrow: false,
 			style: {
 				canvas: {
 					bg: "transparent",
