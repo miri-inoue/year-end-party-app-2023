@@ -57,7 +57,7 @@ function App() {
 						<div className="absolute top-2/4 left-2/4 -translate-y-1/2 -translate-x-1/2"><img src={smile} alt="" /></div>
 					</div>
 					<div className="flex flex-col gap-12 justify-center">
-						<div className="flex gap-2">
+						<div className="flex gap-5">
 							<Button
 								className="w-full py-10 w-60 rounded-full border-8 border-yellow-400 bg-gradient-to-b from-white to-yellow-300"
 								onClick={handleStart}
