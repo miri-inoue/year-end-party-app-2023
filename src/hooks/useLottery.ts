@@ -44,6 +44,9 @@ export const useLottery = () => {
 					defaultColor: "#000",
 				},
 				pie: {
+					border: true,
+					borderColor:"000",
+					borderWidth: 2,
 					theme: [
 						{
 							bg: "#DA4193",
