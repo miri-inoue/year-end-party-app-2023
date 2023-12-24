@@ -24,7 +24,7 @@ export const useLottery = () => {
 	const { roulette, onStart, onStop } = useRoulette({
 		items,
 		options: {
-			size: 600,
+			size: 580,
 			determineAngle: 0,
 			showArrow: false,
 			maxSpeed: 25,
@@ -40,7 +40,7 @@ export const useLottery = () => {
 					font: "16px Arial",
 					align: "right",
 					baseline: "middle",
-					offset: 0.87,
+					offset: 0.92,
 					defaultColor: "#000",
 				},
 				pie: {
