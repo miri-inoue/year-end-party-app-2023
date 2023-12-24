@@ -76,6 +76,7 @@ function App() {
 						<div className="absolute -right-24 -bottom-10 scale-110"><img src={osaka} alt="" /></div>
 						<div className="absolute -left-24 top-36 scale-110"><img src={thx2023} alt="Thank you 2023" /></div>
 						<div className="absolute -right-20 top-10 scale-110"><img src={heart} alt="" /></div>
+						<div className="absolute bg-white w-[600px] h-[600px] top-2/4 left-2/4 -translate-y-1/2 -translate-x-1/2 rounded-full"></div>
 					</div>
 					<div className="flex flex-col gap-8 justify-center items-center">
 						<div className="flex gap-5 relative">
