@@ -68,7 +68,8 @@ function App() {
 						<div className="relative z-10">
 							<Roulette roulette={roulette} />
 						</div>
-						<div className="absolute -right-20 top-2/4 -translate-y-1/2 z-50"><img src={arrow} alt="" /></div>
+						<div className="absolute -right-24
+						 top-2/4 -translate-y-1/2 z-50"><img src={arrow} alt="" /></div>
 						<div className="absolute top-2/4 left-2/4 -translate-y-1/2 -translate-x-1/2 z-50"><img src={smile} alt="" /></div>
 						<div className="absolute -left-20 -top-20 scale-110"><img src={kitty} alt="" /></div>
 						<div className="absolute -left-16 -bottom-4 scale-110"><img src={morioka} alt="MORIOKA" /></div>
