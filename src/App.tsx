@@ -54,7 +54,7 @@ function App() {
 	} = useLottery();
 
 	return (
-		<div className="bg-pink-kirakira flex flex-col gap-12 p-16 justify-between">
+		<div className="bg-pink-kirakira flex flex-col gap-12 p-16 justify-between overflow-x-hidden">
 			<div className="flex flex-col items-center gap-8 h-screen">
 				<h1 className="relative">
 					<img className="z-50 relative scale-110" src={bounenkai} alt="忘年会ルーレット！！" />
