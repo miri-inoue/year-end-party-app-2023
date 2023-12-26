@@ -100,14 +100,14 @@ function App() {
 							</Button>
 							<div className="absolute -right-20 -top-2 scale-110"><img src={tokyo} alt="" /></div>
 						</div>
-						<div className="flex flex-col gap-2 bg-white items-center p-8 w-11/12">
+						<div className="flex flex-col gap-2 bg-white items-center p-8 w-[547px] h-[190px] justify-center">
 							{currentPrize && (<p className="text-2xl font-semibold"><span className="pr-2 text-pink-600">{currentPrize}</span>ゎ。。。</p>)}
-							{currentMember && (<p className="text-3xl font-semibold">{currentMember}±ω</p>)}
+							{currentMember && (<p className="text-3xl font-semibold leading-normal">{currentMember} ±ω</p>)}
 						</div>
-						<div className="grid w-11/12 gap-2 relative">
+						<div className="grid gap-2 relative w-[547px]">
 							{/* <Label htmlFor="all-result">All result list</Label> */}
 							<Textarea
-								className="h-60 z-20"
+								className="h-[170px] z-20"
 								value={resultListOutput}
 								disabled={true}
 							/>
