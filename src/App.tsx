@@ -56,8 +56,8 @@ function App() {
 
 	return (
 		<div className="bg-pink-kirakira flex flex-col gap-12 p-16 justify-between overflow-x-hidden relative">
-			<img className="absolute scale-110 top-11 left-2 z-50" src={linestone} alt="" />
-			<img className="absolute scale-110 top-11 right-2 z-50" src={linestone} alt="" />
+			<img className="absolute scale-110 top-11 left-5 z-50" src={linestone} alt="" />
+			<img className="absolute scale-110 top-11 right-5 z-50" src={linestone} alt="" />
 			<div className="flex flex-col items-center gap-8 h-screen">
 				<h1 className="relative">
 					<img className="z-50 relative scale-110" src={bounenkai} alt="忘年会ルーレット！！" />
@@ -66,7 +66,7 @@ function App() {
 					<img className="absolute -top-[350px] -right-[720px] scale-125" src={rainbow} alt="" />
 					<img className="absolute -top-20 right-36 scale-110" src={butterfly} alt="" />
 				</h1>
-				<div className="flex gap-24">
+				<div className="flex gap-28">
 					<div className="relative">
 						<div className="relative z-10">
 							<Roulette roulette={roulette} />
@@ -75,11 +75,11 @@ function App() {
 						 top-2/4 -translate-y-1/2 z-50"><img src={arrow} alt="" /></div>
 						<div className="absolute top-2/4 left-2/4 -translate-y-1/2 -translate-x-1/2 z-50"><img src={smile} alt="" /></div>
 						<div className="absolute -left-20 -top-20 scale-110"><img src={kitty} alt="" /></div>
-						<div className="absolute -left-16 -bottom-4 scale-110"><img src={morioka} alt="MORIOKA" /></div>
-						<div className="absolute -right-64 -top-20 scale-110"><img src={miyazaki} alt="MiYaZaKi" /></div>
-						<div className="absolute -right-24 -bottom-10 scale-110"><img src={osaka} alt="" /></div>
-						<div className="absolute -left-24 top-36 scale-110"><img src={thx2023} alt="Thank you 2023" /></div>
-						<div className="absolute -right-20 top-10 scale-110"><img src={heart} alt="" /></div>
+						<div className="absolute -left-20 -bottom-4 scale-110"><img src={morioka} alt="MORIOKA" /></div>
+						<div className="absolute -right-64 -top-16 scale-110"><img src={miyazaki} alt="MiYaZaKi" /></div>
+						<div className="absolute -right-32 -bottom-10 scale-110"><img src={osaka} alt="" /></div>
+						<div className="absolute -left-28 top-36 scale-125"><img src={thx2023} alt="Thank you 2023" /></div>
+						<div className="absolute -right-24 top-10 scale-110"><img src={heart} alt="" /></div>
 						<div className="absolute bg-white w-[600px] h-[600px] top-2/4 left-2/4 -translate-y-1/2 -translate-x-1/2 rounded-full"></div>
 					</div>
 					<div className="flex flex-col gap-8 items-center mt-11">
