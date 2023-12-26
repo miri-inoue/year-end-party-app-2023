@@ -32,6 +32,7 @@ import butterfly from "./assets/img_butterfly.png";
 import tokyo from "./assets/img_tokyo.png";
 import nagoya from "./assets/img_nagoya.png";
 import flower from "./assets/img_flower.png";
+import linestone from "./assets/img_linestone.png";
 
 function App() {
 	const {
@@ -54,7 +55,9 @@ function App() {
 	} = useLottery();
 
 	return (
-		<div className="bg-pink-kirakira flex flex-col gap-12 p-16 justify-between overflow-x-hidden">
+		<div className="bg-pink-kirakira flex flex-col gap-12 p-16 justify-between overflow-x-hidden relative">
+			<img className="absolute scale-110 top-11 left-2 z-50" src={linestone} alt="" />
+			<img className="absolute scale-110 top-11 right-2 z-50" src={linestone} alt="" />
 			<div className="flex flex-col items-center gap-8 h-screen">
 				<h1 className="relative">
 					<img className="z-50 relative scale-110" src={bounenkai} alt="忘年会ルーレット！！" />
