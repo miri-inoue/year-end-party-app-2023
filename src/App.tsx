@@ -60,7 +60,7 @@ function App() {
 					<img className="z-50 relative scale-110" src={bounenkai} alt="忘年会ルーレット！！" />
 					<img className="absolute -top-10 -left-52 scale-110" src={year} alt="2023" />
 					<img className="absolute -top-8 left-36 scale-110" src={untgroup} alt="un-T group！" />
-					<img className="absolute -top-44 -right-96 scale-110" src={rainbow} alt="" />
+					<img className="absolute -top-[350px] -right-[720px] scale-125" src={rainbow} alt="" />
 					<img className="absolute -top-20 right-36 scale-110" src={butterfly} alt="" />
 				</h1>
 				<div className="flex gap-24">
@@ -79,7 +79,7 @@ function App() {
 						<div className="absolute -right-20 top-10 scale-110"><img src={heart} alt="" /></div>
 						<div className="absolute bg-white w-[600px] h-[600px] top-2/4 left-2/4 -translate-y-1/2 -translate-x-1/2 rounded-full"></div>
 					</div>
-					<div className="flex flex-col gap-8 justify-center items-center">
+					<div className="flex flex-col gap-8 items-center mt-11">
 						<div className="flex gap-5 relative">
 							<Button
 								className="py-10 w-72 rounded-full border-8 border-yellow-400 bg-gradient-to-b from-white to-yellow-300"
