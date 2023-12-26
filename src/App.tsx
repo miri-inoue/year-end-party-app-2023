@@ -98,8 +98,8 @@ function App() {
 							<div className="absolute -right-20 -top-2 scale-110"><img src={tokyo} alt="" /></div>
 						</div>
 						<div className="flex flex-col gap-2 bg-white items-center p-8 w-11/12">
-							<p className="text-2xl font-semibold"><span className="pr-2 text-pink-600">{currentPrize}</span>ゎ。。。</p>
-							<p className="text-3xl font-semibold">{currentMember}±ω</p>
+							{currentPrize && (<p className="text-2xl font-semibold"><span className="pr-2 text-pink-600">{currentPrize}</span>ゎ。。。</p>)}
+							{currentMember && (<p className="text-3xl font-semibold">{currentMember}±ω</p>)}
 						</div>
 						<div className="grid w-11/12 gap-2 relative">
 							{/* <Label htmlFor="all-result">All result list</Label> */}
