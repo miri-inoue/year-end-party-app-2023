@@ -33,6 +33,8 @@ import tokyo from "./assets/img_tokyo.png";
 import nagoya from "./assets/img_nagoya.png";
 import flower from "./assets/img_flower.png";
 import linestone from "./assets/img_linestone.png";
+import linestone01 from "./assets/img_linestone01.png";
+import linestone02 from "./assets/img_linestone02.png";
 
 function App() {
 	const {
@@ -99,6 +101,7 @@ function App() {
 								<img src={stop} alt="" />
 							</Button>
 							<div className="absolute -right-20 -top-2 scale-110"><img src={tokyo} alt="" /></div>
+							<div className="absolute top-[120px] left-[20px]"><img src={linestone01} alt="" /></div>
 						</div>
 						<div className="flex flex-col gap-2 bg-white items-center p-8 w-[547px] h-[190px] justify-center">
 							{currentPrize && (<p className="text-2xl font-semibold"><span className="pr-2 text-pink-600">{currentPrize}</span>ゎ。。。</p>)}
@@ -113,6 +116,7 @@ function App() {
 							/>
 							<div className="absolute -right-36 -bottom-32 scale-110"><img src={nagoya} alt="NAGOYA" /></div>
 							<div className="absolute right-96 -bottom-14 scale-110"><img src={flower} alt="" /></div>
+							<div className="absolute -top-1 left-[10px] z-20 scale-105"><img src={linestone02} alt="" /></div>
 						</div>
 					</div>
 				</div>
